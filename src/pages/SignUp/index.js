@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import Speech from '../../assets/voice-speech.jpg';
 import { Container, Form } from './styles';
 
 import api from '../../services/api';
@@ -37,6 +38,7 @@ class SignUp extends Component {
     return (
       <Container>
         <Form onSubmit={this.handleSignUp}>
+          <img src={Speech} alt="Airbnb logo" />
           <input
             type="text"
             placeholder="Nome"
