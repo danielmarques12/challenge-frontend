@@ -1,63 +1,61 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+/* eslint-disable react/sort-comp */
+import React from 'react';
+import {
+  PDFViewer,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  pdf,
+} from '@react-pdf/renderer';
+import { withRouter } from 'react-router-dom';
+import jsPDF from 'jspdf';
 import api from '../../services/api';
-import Container from '../../components/container';
-import {} from './styles';
 
-class Transcription extends Component {
-  constructor(props) {
-    super(props);
+// const styles = StyleSheet.create({
+//   page: {
+//     flexDirection: 'row',
+//     backgroundColor: '#red',
+//   },
+//   section: {
+//     margin: 10,
+//     padding: 10,
+//     flexGrow: 1,
+//   },
+// });
 
-    this.state = {
-      token: '',
-    };
-  }
+// const MyDocument = () => (
+//   <Document>
+//     <Page size="A4" style={styles.page}>
+//       <View style={styles.section}>
+//         <Text>Section #1</Text>
+//       </View>
+//       <View style={styles.section}>
+//         <Text>Section #2</Text>
+//       </View>
+//     </Page>
+//   </Document>
+// );
 
-  componentDidMount() {
-    const token = localStorage.getItem('@challenge-Token');
+async function documentPDF(blobDocument) {
+  const data = new FormData();
+  data.append('file', blobDocument, 'a.pdf');
 
-    if (token) {
-      this.setState({ token: `Bearer ${token}` });
-    }
-  }
-
-  handleSubmit = async (event) => {
-    event.preventDefault();
-
-    this.setState({ loading: true, error: false });
-
-    try {
-      const { newRepo, repositories } = this.state;
-
-      if (newRepo === '') throw 'Você precisa indicar um repositório';
-
-      const hasRepo = repositories.find((repo) => repo.name === newRepo);
-
-      if (hasRepo) throw new Error('Repositório duplicado');
-
-      const response = await api.get(`/repos/${newRepo}`);
-
-      const data = {
-        name: response.data.full_name,
-      };
-
-      this.setState({
-        repositories: [...repositories, data],
-        newRepo: '',
-      });
-    } catch (error) {
-      this.setState({ error: true });
-    } finally {
-      this.setState({ loading: true });
-    }
-  };
-
-  render() {
-    const { token } = this.state;
-
-    return token;
-  }
+  await api.post('files', data);
 }
+
+function generatePDF() {
+  const document = new jsPDF();
+  document.text('teste', 10, 10);
+
+  const blobDocument = new Blob([document], { type: 'application/pdf' });
+
+  documentPDF(blobDocument);
+}
+const Transcription = () => {
+  generatePDF();
+  return 'oi';
+};
 
 export default withRouter(Transcription);
