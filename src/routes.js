@@ -2,6 +2,10 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { isAuthenticated } from './services/auth';
 
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Transcription from './pages/Transcription';
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -18,9 +22,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={() => <h1>Login</h1>} />
-      <Route path="/signup" component={() => <h1>Cadastre-se</h1>} />
-      <PrivateRoute path="/app" component={() => <h1>App</h1>} />
+      <Route exact path="/" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
+      <PrivateRoute path="/transcription" component={Transcription} />
       <Route path="*" component={() => <h1>Página não encontrada</h1>} />
     </Switch>
   </BrowserRouter>
