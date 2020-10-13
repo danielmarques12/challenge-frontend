@@ -1,27 +1,25 @@
-/* eslint-disable react/sort-comp */
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import jsPDF from 'jspdf';
-import api from '../../services/api';
+import moment from 'moment';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
+import generatePDF from '../Main';
 
-async function documentPDF(blobDocument) {
-  const data = new FormData();
-  data.append('file', blobDocument, 'a.pdf');
-
-  await api.post('files', data);
-}
-
-function generatePDF() {
-  const document = new jsPDF();
-  document.text('teste', 10, 10);
-
-  const blobDocument = new Blob([document], { type: 'application/pdf' });
-
-  documentPDF(blobDocument);
-}
 const Transcription = () => {
-  generatePDF();
-  return 'oi';
+  const { transcript, resetTranscript } = useSpeechRecognition();
+
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    return null;
+  }
+
+  return (
+    <div>
+      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={resetTranscript}>Reset</button>
+      <p>{transcript}</p>
+    </div>
+  );
 };
 
-export default withRouter(Transcription);
+export default Transcription;

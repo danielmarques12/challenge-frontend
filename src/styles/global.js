@@ -16,4 +16,8 @@ body, html {
   height: 100%;
   width: 100%;
 }
+
+button {
+  cursor: pointer;
+}
 `;
