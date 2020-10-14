@@ -1,3 +1,5 @@
+import JS_PDF from './pdf.js';
+
 class Transcription{
 
   recognition = new webkitSpeechRecognition();
@@ -45,7 +47,8 @@ class Transcription{
       transcription += phrase + this.date[index] + "\n";
     })
 
-    const pdf = new PDF();
-    pdf.generatePDF(transcription);
+    JS_PDF.generatePDF(transcription);
   }
 }
+
+export default new Transcription();

@@ -1,9 +1,8 @@
 {
   "dependencies": {
+    "axios": "^0.20.0",
     "jspdf": "^2.1.1",
     "mdbootstrap": "^4.19.1"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

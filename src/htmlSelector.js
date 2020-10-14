@@ -1,4 +1,4 @@
-const startBtn = document.querySelector('#start');
-const stopBtn = document.querySelector('#stop');
-const tempOutput = document.querySelector('#tempOutput');
-const finalOutput = document.querySelector('#finalOutput');
+export const startBtn = document.querySelector('#start');
+export const stopBtn = document.querySelector('#stop');
+export const tempOutput = document.querySelector('#tempOutput');
+export const finalOutput = document.querySelector('#finalOutput');

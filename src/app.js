@@ -1,6 +1,7 @@
-function main() {
-  const transcription = new Transcription();
+import transcription from './transcription.js';
+import { startBtn, stopBtn } from './htmlSelector.js';
 
+function main() {
   startBtn.addEventListener('click', () => transcription.start());
   stopBtn.addEventListener('click', () => transcription.stop());
 }
