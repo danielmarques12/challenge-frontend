@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/global.css">
   <link rel="stylesheet" href="styles/signForm.css">
-  <title>Entrar</title>
+  <title>Cadastrar</title>
 </head>
 <body>
   <div class="container">
-    <form id="auth_user_form">
+    <form id="create_user_form">
+      <input type="text" id="name"  placeholder="Name" required>
       <input type="email" id="email" placeholder="Email" required>
       <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Entrar</button>
+      <button type="submit">Cadastrar</button>
       <hr/>
-      <a href="./signUp.html">Não possui uma conta? Cadastre-se grátis</a>
+      <a href="./index.html">Já possui uma conta? Faça login</a>
     </form>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
   <script type="module" src="src/services/auth.js"></script>
   <script type="module" src="src/services/api.js"></script>
-  <script type="module" src="src/signIn.js"></script>
+  <script type="module" src="src/signUp.js"></script>
 </body>
 </html>

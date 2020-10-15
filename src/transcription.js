@@ -1,6 +1,7 @@
 import JS_PDF from './pdf.js';
+import { tempOutput, finalOutput} from './htmlSelector.js';
 
-class Transcription{
+class Transcription {
 
   recognition = new webkitSpeechRecognition();
   fullTranscription = [];

@@ -1,5 +1,5 @@
-import { api } from './api.js';
-import { getToken } from './auth.js';
+import { api } from './services/api.js';
+import { getToken, isAuthenticated } from './services/auth.js';
 
 class PDF {
   
@@ -11,7 +11,7 @@ class PDF {
     const pdf_document_blob = new Blob([pdf_document], {type: "application/pdf"});
     this.savePDF(pdf_document_blob);
     
-    // window.open(document.output('bloburl'));
+    // window.open(pdf_document.output('bloburl'));
   }
 
   async savePDF(pdf_document_blob) {
@@ -19,7 +19,11 @@ class PDF {
     const data = new FormData();
     data.append('file', pdf_document_blob, 'teste.pdf');
 
-    await api.post('files', data);
+    if(isAuthenticated) {
+      await api.post('files', data);
+      console.log('pdf created');
+    }
+
   }
 }
 
