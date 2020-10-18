@@ -1,13 +1,27 @@
 import { api } from './services/api.js';
 // import { getToken } from './services/auth.js';
 
-const files = [];
+var files = [];
 
-api.get('getfiles', { headers: {'Access-Control-Allow-Methods': 'GET'} } )
-  .then(response => {
-    files.push(response.data);
-    console.log(files);
-  })
-  .catch(error => {
-    console.log(error);
-  })
+api.get('files')
+.then(response => {
+  files = response.data;
+  filesDiv();
+})
+.catch(error => {
+  console.log(error);
+})
+
+
+function filesDiv() {
+  // const div_container = document.getElementById('container');
+  for(let i = 0; i < files.length; i++) {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <a href=${files[i].url}>
+        ${files[i].name}
+      </a>
+    `;
+    document.body.appendChild(div);
+  };
+}
