@@ -16,8 +16,9 @@ const formEvent = auth_user_form.addEventListener('submit', event => {
 
 const authUser = (user) => {
   api.post('sessions', user)
-    .then(response => {
-      login(response.data["token"]);
+  .then(response => {
+    login(response.data["token"]);
+    window.location.href = 'pages/transcription.html';
     })
     .catch(error => {
       console.error(error);

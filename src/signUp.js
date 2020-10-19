@@ -19,6 +19,7 @@ const create_user_form = document.getElementById('create_user_form');
       .then(response => {
         const addedUser = response.data;
         console.log(`POST: user is added`, addedUser);
+        window.location.href = '../index.html';
       })
       .catch(error => {
         console.error(error);

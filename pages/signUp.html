@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/global.css">
-  <link rel="stylesheet" href="styles/signForm.css">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../styles/signForm.css">
   <title>Cadastrar</title>
 </head>
 <body>
@@ -19,9 +19,13 @@
     </form>
   </div>
 
+  <script>
+    if(localStorage.getItem('challenge-dow-quimica-transcription'))
+      window.location.href = "../pages/transcription.html";
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-  <script type="module" src="src/services/auth.js"></script>
-  <script type="module" src="src/services/api.js"></script>
-  <script type="module" src="src/signUp.js"></script>
+  <script type="module" src="../src/services/auth.js"></script>
+  <script type="module" src="../src/services/api.js"></script>
+  <script type="module" src="../src/signUp.js"></script>
 </body>
 </html>

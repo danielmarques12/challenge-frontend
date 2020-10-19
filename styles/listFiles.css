@@ -1,0 +1,28 @@
+#container {
+  width: 75%;
+  height: 40%;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.pdf-div {
+  text-align: center;
+}
+
+.pdf-link {
+  background: rgb(90, 157, 205);
+  border: 0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.pdf-link:hover {
+  background:#fff;
+  color: rgb(90, 157, 205);
+}

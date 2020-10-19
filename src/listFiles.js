@@ -14,14 +14,15 @@ api.get('files')
 
 
 function filesDiv() {
-  // const div_container = document.getElementById('container');
+  const div_container = document.getElementById('container');
   for(let i = 0; i < files.length; i++) {
     const div = document.createElement('div');
     div.innerHTML = `
-      <a href=${files[i].url}>
+      <a href=${files[i].url} class="pdf-link">
         ${files[i].name}
       </a>
     `;
-    document.body.appendChild(div);
+    div.classList.add('pdf-div');
+    div_container.appendChild(div);
   };
 }

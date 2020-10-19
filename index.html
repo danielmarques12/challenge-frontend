@@ -18,6 +18,10 @@
     </form>
   </div>
 
+  <script>
+    if(localStorage.getItem('challenge-dow-quimica-transcription'))
+      window.location.href = "pages/transcription.html";
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
   <script type="module" src="src/services/auth.js"></script>
   <script type="module" src="src/services/api.js"></script>
