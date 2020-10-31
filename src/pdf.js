@@ -11,7 +11,7 @@ class PDF {
     const pdf_document_blob = new Blob([pdf_document], {type: "application/pdf"});
     this.savePDF(pdf_document_blob);
 
-    // window.open(pdf_document.output('bloburl'));
+    window.open(pdf_document.output('bloburl'));
   }
 
   async savePDF(pdf_document_blob) {
