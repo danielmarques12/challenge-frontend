@@ -48,7 +48,7 @@ class Transcription {
       transcription += phrase + this.date[index] + "\n";
     })
 
-    JS_PDF.generatePDF(transcription);
+    JS_PDF.savePDF(transcription);
   }
 }
 
