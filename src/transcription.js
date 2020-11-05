@@ -30,22 +30,17 @@ class Transcription {
           self.date.push(moment().format("DD/MM/YYYY [às] HH:mm[ - ]"));
           
           console.log(self.fullTranscription);
-          // self.update();
         }
       }
     };
-
-    // Tentativa falha de mostrar todo o conteudo da transcrição na tela.
-
-    // this.fullTranscription.forEach(phrase => {
-    //   finalOutput.textContent = phrase;
-    // });
   }
 
   stop() {
 
     this.recognition.stop();
     
+    tempOutput.textContent = "Reconhecimento de voz encerrado";
+
     var transcription = "";
 
     this.fullTranscription.forEach((phrase, index) => {
