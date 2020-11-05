@@ -1,6 +1,6 @@
 body {
-  background-color:	#2c2f33;
-  color: #ffff;
+  background-color:	#fff;
+  color: black;
   position: relative;
 }
 
@@ -8,7 +8,6 @@ body {
   text-align: center;
   margin: 2.5% auto;
   width: 75%;
-  
 }
 
 .text-output {
@@ -22,9 +21,13 @@ body {
 }
 
 .btn {
-  background-color: #7289da;
+  background-color: #e82230;
   margin: 1.75% auto;
   border-radius: 25px;
-  color: #ffff;
+  color: #fff;
   text-align: center;
+}
+
+.btn > i {
+  margin-left: 5px;
 }

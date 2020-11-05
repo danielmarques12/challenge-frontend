@@ -24,7 +24,7 @@
 
       <button id="stop" class="btn btn-rounded btn-lg">
         Parar reconhecimento de voz
-        <i class="far fa-file-pdf fa-1x"></i>
+        <i class="fas fa-microphone-alt-slash fa-1x"></i>
       </button>
       
       <button id="renderpdf" class="btn btn-rounded btn-lg">
@@ -33,11 +33,11 @@
       </button>
       
       <div class="textos">
-        <h3>Sendo falado no momento</h3>
+        <!-- <h3>Sendo falado no momento</h3> -->
         <p class="text-output" id="tempOutput"></p>
 
-        <h3>Registro da conversa</h3>
-        <p class="text-output" id="finalOutput"></p>
+        <!-- <h3>Registro da conversa</h3>
+        <p class="text-output" id="finalOutput"></p> -->
       </div>
 
       <a href="./listFiles.html"> Registro de arquivos transcritos </a>
@@ -45,6 +45,12 @@
       <button id="logout">Logout</button>
 
     </div>
+
+    <script>
+      if(!localStorage.getItem('challenge-dow-quimica-transcription')) {
+        window.location.href='../index.html';
+      }
+    </script>
 
     <script type="text/javascript" src="../node_modules/mdbootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>

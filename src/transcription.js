@@ -1,4 +1,4 @@
-import JS_PDF from './pdf.js';
+import pdf from './pdf.js';
 import { tempOutput, finalOutput} from './htmlSelector.js';
 
 class Transcription {
@@ -6,7 +6,7 @@ class Transcription {
   recognition = new webkitSpeechRecognition();
   fullTranscription = [];
   date = [];
-  
+    
   start() {
 
     var self = this;
@@ -22,22 +22,26 @@ class Transcription {
         if (event.results[i].isFinal) {
           // Here you can get the string of what you told
           const content = event.results[i][0].transcript.trim();
+          const phrase = content.charAt(0).toUpperCase() + content.slice(1);
+          
+          tempOutput.textContent = phrase;
+          self.fullTranscription.push(phrase);
 
-          tempOutput.textContent = content;
-          self.fullTranscription.push(content);
-
-          self.date.push(moment().format("[ - ]DD/MM/YYYY [às] HH:mm:ss"));
+          self.date.push(moment().format("DD/MM/YYYY [às] HH:mm[ - ]"));
           
           console.log(self.fullTranscription);
+          // self.update();
         }
       }
     };
 
-    this.fullTranscription.forEach(phrase => {
-      finalOutput.textContent = phrase;
-    });
+    // Tentativa falha de mostrar todo o conteudo da transcrição na tela.
+
+    // this.fullTranscription.forEach(phrase => {
+    //   finalOutput.textContent = phrase;
+    // });
   }
-  
+
   stop() {
 
     this.recognition.stop();
@@ -45,10 +49,10 @@ class Transcription {
     var transcription = "";
 
     this.fullTranscription.forEach((phrase, index) => {
-      transcription += phrase + this.date[index] + "\n";
-    })
+      transcription += this.date[index] + phrase + "\n";
+    });
 
-    JS_PDF.savePDF(transcription);
+    pdf.savePDF(transcription);
   }
 }
 
