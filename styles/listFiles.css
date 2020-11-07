@@ -14,7 +14,7 @@
 }
 
 .pdf-link {
-  background: rgb(90, 157, 205);
+  background: #6ebabd;
   border: 0;
   border-radius: 10px;
   text-decoration: none;
@@ -25,5 +25,5 @@
 
 .pdf-link:hover {
   background:#fff;
-  color: rgb(90, 157, 205);
+  color: #6ebabd;
 }
